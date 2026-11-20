@@ -30,6 +30,8 @@ jobs:
       - uses: actions/checkout@v6
       - name: Install Semgrep
         run: pipx install semgrep==1.182.1
+      - name: Prepare Semgrep rules
+        run: ln -s cpp-rules .semgrep/cpp-rules.yml
       - name: Run SAST
         run: make sast
 
